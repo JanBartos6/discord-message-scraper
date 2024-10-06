@@ -4,7 +4,7 @@ The next step is to get through the redirect from disboard invites to discord in
 
 Accepting invites and server verification are currently in development.
 
-Experimental message scraping
+# Experimental message scraping
 
 First, cd to C:\path\to\DiscordChatExporter in your terminal (message_scraper/version_based_on_your_system)
 
@@ -24,17 +24,19 @@ To execute with the default settings, type: ./DiscordChatExporter.Cli
 
 How to get your user token: https://www.youtube.com/watch?v=jjtu0VQXV7I
 
-Customization
+## Customization
 
 Export a specific channel
 
 You can quickly export with DCE's default settings by using just -t token and -c channelid. (-f format - json, csv, html,...). You can also change the export directory by using -o.
 
+```console
 ./DiscordChatExporter.Cli export -t "mfa.Ifrn" -c 53555 -f json -o "C:\Discord Exports"
+```
 
 If any of the folders in the path have a space in its name, escape them with quotes (").
 
-#### Generating the filename and output directory dynamically
+## Generating the filename and output directory dynamically
 
 You can use template tokens to generate the output file path based on the server and channel metadata.
 
@@ -60,53 +62,71 @@ Here is the full list of supported template tokens:
 - `%b` - the "before" date
 - `%%` - escapes `%`
 
-Partitioning
+## Partitioning
 
 You can use partitioning to split files after a given number of messages or file size. For example, a channel with 36 messages set to be partitioned every 10 messages will output 4 files.
 
+```console
 ./DiscordChatExporter.Cli export -t "mfa.Ifrn" -c 53555 -p 10
+```
 
 A 45 MB channel set to be partitioned every 20 MB will output 3 files.
 
+```console
 ./DiscordChatExporter.Cli export -t "mfa.Ifrn" -c 53555 -p 20mb
+```
 
-Date ranges
+## Date ranges
 
 Messages sent before a date Use --before to export messages sent before the provided date. E.g. messages sent before September 18th, 2019:
 
+```console
 ./DiscordChatExporter.Cli export -t "mfa.Ifrn" -c 53555 --before 2019-09-18
+```
 
 Messages sent after a date Use --after to export messages sent after the provided date. E.g. messages sent after September 17th, 2019 11:34 PM:
 
+```console
 ./DiscordChatExporter.Cli export -t "mfa.Ifrn" -c 53555 --after "2019-09-17 23:34"
+```
 
-Including threads
+## Including threads
 
 By default, threads are not included in the export. You can change this behavior by using --include-threads and specifying which threads should be included. It has possible values of none, active, or all, indicating which threads should be included. To include both active and archived threads, use --include-threads all.
 
+```console
 ./DiscordChatExporter.Cli exportguild -t "mfa.Ifrn" -g 21814 --include-threads all
+```
 
-Export all channels
+## Export all channels
 
 To export all accessible channels, use the exportall command:
 
+```console
 ./DiscordChatExporter.Cli exportall -t "mfa.Ifrn"
+```
 
-Excluding DMs
+## Excluding DMs
 
 To exclude DMs, add the --include-dm false option.
 
+```console
 ./DiscordChatExporter.Cli exportall -t "mfa.Ifrn" --include-dm false
+```
 
-List channels in a server
+## List channels in a server
 
 To list the channels available in a specific server, use the channels command and provide the server ID through the -g|--guild option:
 
+```console
 ./DiscordChatExporter.Cli channels -t "mfa.Ifrn" -g 21814
+```
 
-List servers
+## List servers
 
 To list all servers accessible by the current account, use the guilds command:
 
+```console
 ./DiscordChatExporter.Cli guilds -t "mfa.Ifrn" > C:\path\to\output.txt
+```
 
