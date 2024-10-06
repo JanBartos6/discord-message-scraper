@@ -1,11 +1,8 @@
-Firstly, insert your user token to user_token.txt.
-Then, you can go to public_servers.ipynb and execute it (except the last block which is unfinished).
-In public_servers.ipynb, you'll find code for bypassing CloudFlare and then extracting discord invites from Disboard.com based on topic from topics.txt
-Servers are by default sorted by member-count and you can estimate the number of invites from number of scrolls (scraping all servers bigger than X members feature commming in the next update).
+Firstly, insert your user token into user_token.txt. Then, you can go to public_servers.ipynb and execute it (except the last block, which is unfinished). In public_servers.ipynb, you'll find code for bypassing CloudFlare and then extracting Discord invites from Disboard.com based on topic from topics.txt. Servers are by default sorted by member count, and you can estimate the number of invites from the number of scrolls (scraping all servers bigger than X members feature coming in the next update).
 
-The next step is to get though the redirect from disboard invites to discord invites (also featuring the Clouflare bypass).
+The next step is to get through the redirect from disboard invites to discord invites (also featuring the Clouflare bypass).
 
-Accepting invites and server verification currently in developement.
+Accepting invites and server verification are currently in development.
 
 Experimental message scraping
 
